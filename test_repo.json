@@ -1,0 +1,19 @@
+[{
+    "name": "braking_test",
+    "description": "test robot braking performance",
+    "publishers": [
+    			{"name": "/velocity",
+    			"msg_type": "geometry_msgs/Twist",
+    			"description": "Topic to receive commands to control robot velocity"}
+    			],
+	"subscribers": [
+			{"name": "/data/robot/odom/twist/linear_x",
+			"msg_type": "nav_msgs/Odometry",
+			"description": "Topic to receive commands to control robot velocity"}
+			]
+},
+{
+	"name": "navigation_test",
+	"description": "test robot navigation performance",
+	"action_clients": [{"name": "move_base"}]
+}]
