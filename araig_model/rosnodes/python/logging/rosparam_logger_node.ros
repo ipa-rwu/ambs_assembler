@@ -1,0 +1,13 @@
+PackageSet {
+	CatkinPackage araig_calculators {
+		Artifact  araig_calculators {
+			Node { name rosparam_logger_node 
+		        Subscribers {
+		          Subscriber { name '/start' message 'araig_msgs.BoolStamped'},
+		          Subscriber { name '/stop' message 'araig_msgs.BoolStamped'}}
+		        Parameters {
+		          Parameter { name 'logginng_topics' type Array {type Array {type String}} },
+		          Parameter { name 'start_offset' type Double },
+  		          Parameter { name 'stop_offset' type Double }
+		          }
+}}}}

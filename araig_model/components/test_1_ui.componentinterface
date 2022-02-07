@@ -1,0 +1,18 @@
+ComponentInterface { name test_1_ui
+	FromRosNode "araig_test_runners.test_1_ui.test_1_ui"
+	RosPublishers{
+		RosPublisher "/signal/ui/start_test" { RefPublisher "araig_test_runners.test_1_ui.test_1_ui./signal/ui/start_test"},
+		RosPublisher "/signal/ui/reset_test" { RefPublisher "araig_test_runners.test_1_ui.test_1_ui./signal/ui/reset_test"},
+		RosPublisher "/signal/ui/interrupt_test" { RefPublisher "araig_test_runners.test_1_ui.test_1_ui./signal/ui/interrupt_test"}
+	}
+	RosSubscribers{
+		RosSubscriber "/signal/runner/test_completed" { RefSubscriber "araig_test_runners.test_1_ui.test_1_ui./signal/runner/test_completed"},
+		RosSubscriber "/signal/runner/test_failed" { RefSubscriber "araig_test_runners.test_1_ui.test_1_ui./signal/runner/test_failed"},
+		RosSubscriber "/signal/runner/test_succeeded" { RefSubscriber "araig_test_runners.test_1_ui.test_1_ui./signal/runner/test_succeeded"}
+	}
+	
+		RosParameters{
+			RosParameter "goal_reach_timeout" { RefParameter "araig_test_runners.test_1_ui.test_1_ui.goal_reach_timeout"},
+			RosParameter "verification_timeout" { RefParameter "araig_test_runners.test_1_ui.test_1_ui.verification_timeout"}
+		}
+}

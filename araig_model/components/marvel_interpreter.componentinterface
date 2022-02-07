@@ -1,0 +1,10 @@
+ComponentInterface { name marvel_interpreter
+	FromRosNode "araig_interpreters.araig_interpreters.marvel_interpreter"
+	RosPublishers{
+		RosPublisher "beacon_6" { RefPublisher "araig_interpreters.araig_interpreters.marvel_interpreter.beacon_6"}
+	}
+	RosSubscribers{
+		RosSubscriber "/hedge_pos_a" { RefSubscriber "araig_interpreters.araig_interpreters.marvel_interpreter./hedge_pos_a"}
+	}
+	
+}

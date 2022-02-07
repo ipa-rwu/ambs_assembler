@@ -1,0 +1,16 @@
+ComponentInterface { name diff_pose_temporal_node
+	FromRosNode "araig_calculators.araig_calculators.diff_pose_temporal_node"
+	RosPublishers{
+		RosPublisher "/out_disp_position" { RefPublisher "araig_calculators.araig_calculators.diff_pose_temporal_node./out_disp_position"},
+		RosPublisher "/out_disp_angular" { RefPublisher "araig_calculators.araig_calculators.diff_pose_temporal_node./out_disp_angular"}
+	}
+	RosSubscribers{
+		RosSubscriber "/in_start" { RefSubscriber "araig_calculators.araig_calculators.diff_pose_temporal_node./in_start"},
+		RosSubscriber "/in_stop" { RefSubscriber "araig_calculators.araig_calculators.diff_pose_temporal_node./in_stop"},
+		RosSubscriber "/in_pose" { RefSubscriber "araig_calculators.araig_calculators.diff_pose_temporal_node./in_pose"}
+	}
+	
+		RosParameters{
+			RosParameter "if_log" { RefParameter "araig_calculators.araig_calculators.diff_pose_temporal_node.if_log"}
+		}
+}

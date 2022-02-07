@@ -1,0 +1,14 @@
+ComponentInterface { name comp_param_node
+	FromRosNode "araig_calculators.comp_param_node.comp_param_node"
+	RosPublishers{
+		RosPublisher "/out_bool" { RefPublisher "araig_calculators.comp_param_node.comp_param_node./out_bool"}
+	}
+	RosSubscribers{
+		RosSubscriber "/in_float" { RefSubscriber "araig_calculators.comp_param_node.comp_param_node./in_float"}
+	}
+	
+		RosParameters{
+			RosParameter "param" { RefParameter "araig_calculators.comp_param_node.comp_param_node.param"},
+			RosParameter "tolerance" { RefParameter "araig_calculators.comp_param_node.comp_param_node.tolerance"}
+		}
+}

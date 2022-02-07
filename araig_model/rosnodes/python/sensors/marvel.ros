@@ -1,0 +1,10 @@
+PackageSet {
+	CatkinPackage araig_interpreters {
+		Artifact  araig_interpreters {
+			Node { name marvel_interpreter
+		        Publishers {
+					//	number should be dynamic	        	
+		          Publisher { name 'beacon_6' message 'geometry_msgs.PoseStamped'}}
+		        Subscribers {
+		          Subscriber { name '/hedge_pos_a' message 'marvelmind_nav.hedge_pos_a'}}
+}}}}

@@ -1,0 +1,21 @@
+<package format="2">
+  <name>braking_test</name>
+  <version>0.0.1</version>
+  <description>This package provides launch file for operating braking_test</description>
+
+  <license>Apache 2.0</license>
+
+  <url type="website">http://wiki.ros.org/</url>
+
+
+  <maintainer email="jane.doe@example.com">Jane Doe</maintainer>
+  <author email="jane.doe@example.com">Jane Doe</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>araig_calculators</exec_depend>
+  <exec_depend>araig_test_runners</exec_depend>
+  <exec_depend>araig_interpreters</exec_depend>
+  <exec_depend>araig_test_targets</exec_depend>
+  <!--test_depend>roslaunch</test_depend-->
+
+</package>

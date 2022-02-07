@@ -1,0 +1,14 @@
+ComponentInterface { name diff_time_node
+	FromRosNode "araig_calculators.araig_calculators.diff_time_node"
+	RosPublishers{
+		RosPublisher "/out_duration" { RefPublisher "araig_calculators.araig_calculators.diff_time_node./out_duration"}
+	}
+	RosSubscribers{
+		RosSubscriber "/in_start" { RefSubscriber "araig_calculators.araig_calculators.diff_time_node./in_start"},
+		RosSubscriber "/in_stop" { RefSubscriber "araig_calculators.araig_calculators.diff_time_node./in_stop"}
+	}
+	
+		RosParameters{
+			RosParameter "if_log" { RefParameter "araig_calculators.araig_calculators.diff_time_node.if_log"}
+		}
+}

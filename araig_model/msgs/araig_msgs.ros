@@ -1,0 +1,7 @@
+PackageSet{
+    Package araig_msgs{ Specs { 
+      TopicSpec BoolStamped{ message { Header header bool data }},
+      TopicSpec Float64Stamped{ message { Header header float64 data }},
+      TopicSpec araig_msg{ message { Header header bool result_bool int32 result_int float32 result_float string result_string }}
+    }}
+}

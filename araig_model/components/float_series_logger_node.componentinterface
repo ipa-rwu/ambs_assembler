@@ -1,0 +1,15 @@
+ComponentInterface { name float_series_logger_node
+	FromRosNode "araig_calculators.araig_calculators.float_series_logger_node"
+	RosSubscribers{
+		RosSubscriber "/start" { RefSubscriber "araig_calculators.araig_calculators.float_series_logger_node./start"},
+		RosSubscriber "/stop" { RefSubscriber "araig_calculators.araig_calculators.float_series_logger_node./stop"},
+		RosSubscriber "/in_float" { RefSubscriber "araig_calculators.araig_calculators.float_series_logger_node./in_float"}
+	}
+	
+		RosParameters{
+			RosParameter "start_offset" { RefParameter "araig_calculators.araig_calculators.float_series_logger_node.start_offset"},
+			RosParameter "stop_offset" { RefParameter "araig_calculators.araig_calculators.float_series_logger_node.stop_offset"},
+			RosParameter "logged_data_title" { RefParameter "araig_calculators.araig_calculators.float_series_logger_node.logged_data_title"},
+			RosParameter "column_headers" { RefParameter "araig_calculators.araig_calculators.float_series_logger_node.column_headers"}
+		}
+}

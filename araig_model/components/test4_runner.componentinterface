@@ -1,0 +1,23 @@
+ComponentInterface { name test4_runner
+	FromRosNode "araig_test_runners.test4_runner.test4_runner"
+	RosPublishers{
+		RosPublisher "/signal/runner/start_robot" { RefPublisher "araig_test_runners.test4_runner.test4_runner./signal/runner/start_robot"},
+		RosPublisher "/signal/runner/test_completed" { RefPublisher "araig_test_runners.test4_runner.test4_runner./signal/runner/test_completed"},
+		RosPublisher "/signal/runner/test_failed" { RefPublisher "araig_test_runners.test4_runner.test4_runner./signal/runner/test_failed"},
+		RosPublisher "/signal/runner/test_succeeded" { RefPublisher "araig_test_runners.test4_runner.test4_runner./signal/runner/test_succeeded"},
+		RosPublisher "/signal/ui/interrupt_test" { RefPublisher "araig_test_runners.test4_runner.test4_runner./signal/ui/interrupt_test"}
+	}
+	RosSubscribers{
+		RosSubscriber "/signal/calc/robot_has_stopped" { RefSubscriber "araig_test_runners.test4_runner.test4_runner./signal/calc/robot_has_stopped"},
+		RosSubscriber "/signal/logger/begin_write" { RefSubscriber "araig_test_runners.test4_runner.test4_runner./signal/logger/begin_write"},
+		RosSubscriber "/signal/ui/start_test" { RefSubscriber "araig_test_runners.test4_runner.test4_runner./signal/ui/start_test"},
+		RosSubscriber "/signal/ui/reset_test" { RefSubscriber "araig_test_runners.test4_runner.test4_runner./signal/ui/reset_test"},
+		RosSubscriber "/signal/ui/interrupt_test" { RefSubscriber "araig_test_runners.test4_runner.test4_runner./signal/ui/interrupt_test"},
+		RosSubscriber "/signal/calc/robot_reached_goal_and_stopped" { RefSubscriber "araig_test_runners.test4_runner.test4_runner./signal/calc/robot_reached_goal_and_stopped"}
+	}
+	
+		RosParameters{
+			RosParameter "goal_reach_timeout" { RefParameter "araig_test_runners.test4_runner.test4_runner.goal_reach_timeout"},
+			RosParameter "verification_timeout" { RefParameter "araig_test_runners.test4_runner.test4_runner.verification_timeout"}
+		}
+}

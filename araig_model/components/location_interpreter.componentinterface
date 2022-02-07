@@ -1,0 +1,15 @@
+ComponentInterface { name location_interpreter
+	FromRosNode "araig_interpreters.location_interpreter.location_interpreter"
+	RosPublishers{
+		RosPublisher "out_pose" { RefPublisher "araig_interpreters.location_interpreter.location_interpreter.out_pose"}
+	}
+	RosSubscribers{
+		RosSubscriber "start" { RefSubscriber "araig_interpreters.location_interpreter.location_interpreter.start"},
+		RosSubscriber "stop" { RefSubscriber "araig_interpreters.location_interpreter.location_interpreter.stop"}
+	}
+	
+		RosParameters{
+			RosParameter "max_vel" { RefParameter "araig_interpreters.location_interpreter.location_interpreter.max_vel"},
+			RosParameter "rate" { RefParameter "araig_interpreters.location_interpreter.location_interpreter.rate"}
+		}
+}

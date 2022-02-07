@@ -1,0 +1,15 @@
+PackageSet {
+	CatkinPackage araig_calculators {
+		Artifact  araig_calculators {
+			Node { name results_logger_node 
+		        Subscribers {
+		          Subscriber { name '/start' message 'araig_msgs.BoolStamped'},
+		          Subscriber { name '/stop' message 'araig_msgs.BoolStamped'},
+		          Subscriber { name '/test_failed' message 'araig_msgs.BoolStamped'},
+		          Subscriber { name '/test_succeeded' message 'araig_msgs.BoolStamped'}}
+		        Parameters {
+		          Parameter { name 'start_offset' type Double },
+  		          Parameter { name 'stop_offset' type Double },
+		          Parameter { name 'logginng_topics' type String }
+		          }
+}}}}

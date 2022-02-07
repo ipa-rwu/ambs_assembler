@@ -1,0 +1,16 @@
+PackageSet {
+	CatkinPackage araig_test_runners {
+		Artifact  test_1_ui {
+			Node { name test_1_ui
+		        Publishers {
+		          Publisher { name '/signal/ui/start_test' message 'araig_msgs.BoolStamped'},
+		          Publisher { name '/signal/ui/reset_test' message 'araig_msgs.BoolStamped'},
+		          Publisher { name '/signal/ui/interrupt_test' message 'araig_msgs.BoolStamped'}}
+		        Subscribers {
+		          Subscriber { name '/signal/runner/test_completed' message 'araig_msgs.BoolStamped'},
+		          Subscriber { name '/signal/runner/test_failed' message 'araig_msgs.BoolStamped'},
+		          Subscriber { name '/signal/runner/test_succeeded' message 'araig_msgs.BoolStamped'}}
+		        Parameters {
+		          Parameter { name 'goal_reach_timeout' type Integer },
+		          Parameter { name 'verification_timeout' type Integer }}
+}}}}

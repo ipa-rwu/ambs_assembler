@@ -1,0 +1,17 @@
+PackageSet {
+	CatkinPackage araig_interpreters {
+		Artifact  location_interpreter {
+			Node { name location_interpreter 
+		        Publishers {
+		          Publisher { name 'out_pose' message 'geometry_msgs.Twist'}}
+		        Subscribers {
+		          Subscriber { name 'start' message 'araig_msgs.BoolStamped'},
+		          Subscriber { name 'stop' message 'araig_msgs.BoolStamped'}}
+		        Parameters {
+		          Parameter { name 'max_vel' type Double },
+		          Parameter { name 'rate' type Double }}
+
+}
+}
+}
+}

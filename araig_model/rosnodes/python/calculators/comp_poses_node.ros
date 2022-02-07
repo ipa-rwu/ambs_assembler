@@ -1,0 +1,13 @@
+PackageSet {
+	CatkinPackage araig_calculators {
+		Artifact  araig_calculators {
+			Node { name comp_poses_node 
+		        Publishers {
+		          Publisher { name '/out_bool' message 'araig_msgs.BoolStamped'}}
+		        Subscribers {
+		          Subscriber { name '/in_pose_1' message 'geometry_msgs.PoseStamped'},
+		          Subscriber { name '/in_pose_2' message 'geometry_msgs.PoseStamped'}}
+		        Parameters {
+		          Parameter { name 'pose_tolerance' type Double },
+		          Parameter { name 'orientation_tolerance' type Double }}
+}}}}

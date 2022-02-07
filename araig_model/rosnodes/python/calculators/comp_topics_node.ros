@@ -1,0 +1,12 @@
+PackageSet {
+	CatkinPackage araig_calculators {
+		Artifact  araig_calculators {
+			Node { name comp_topics_node 
+		        Publishers {
+		          Publisher { name '/out_bool' message 'araig_msgs.BoolStamped'}}
+		        Subscribers {
+		          Subscriber { name '/in_bool_1' message 'araig_msgs.BoolStamped'},
+		          Subscriber { name '/in_bool_2' message 'araig_msgs.BoolStamped'}}
+		        Parameters {
+		          Parameter { name 'tolerance' type Integer }}
+}}}}

@@ -1,0 +1,29 @@
+PackageSet {
+	CatkinPackage araig_interpreters {
+		Artifact  araig_interpreters {
+			Node { name goal_interpreter 
+		        Publishers {
+		          Publisher { name 'goal' message 'geometry_msgs.PoseStamped'},
+		          Publisher { name 'done' message 'araig_msgs.BoolStamped'}}
+		        Subscribers {
+		          Subscriber { name 'start' message 'araig_msgs.BoolStamped'},
+		          Subscriber { name 'result' message 'move_base_msgs.MoveBaseActionResult'}}
+	          	ActionClients {
+		          ActionClient { name 'move_base_client' action "move_base_msgs.MoveBase"}}
+		        Parameters {
+		          Parameter { name 'goal' type Double },
+		          Parameter { name 'orientation_tolerance' type Double },		     	  
+		          Parameter { name 'goal_action' type Double },
+		     	  Parameter { name 'wait_action' type Integer }, 
+		     	  Parameter { name 'rate' type Integer },
+		          Parameter { name 'goal' type Struct {
+			            frame_id String,
+			            child_frame_id String,
+			            position Struct {
+			            	x Double,
+			            	y Double,
+			            	z Double,
+			            	yaw Double} 
+			            	}}}
+
+}}}}

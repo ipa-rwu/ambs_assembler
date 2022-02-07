@@ -1,0 +1,19 @@
+ComponentInterface { name folder_bagger_node
+	FromRosNode "araig_calculators.araig_calculators.folder_bagger_node"
+	RosPublishers{
+		RosPublisher "/out_begin_write" { RefPublisher "araig_calculators.araig_calculators.folder_bagger_node./out_begin_write"}
+	}
+	RosSubscribers{
+		RosSubscriber "/start" { RefSubscriber "araig_calculators.araig_calculators.folder_bagger_node./start"},
+		RosSubscriber "/stop" { RefSubscriber "araig_calculators.araig_calculators.folder_bagger_node./stop"},
+		RosSubscriber "/test_failed" { RefSubscriber "araig_calculators.araig_calculators.folder_bagger_node./test_failed"},
+		RosSubscriber "/test_succeeded" { RefSubscriber "araig_calculators.araig_calculators.folder_bagger_node./test_succeeded"}
+	}
+	
+		RosParameters{
+			RosParameter "start_offset" { RefParameter "araig_calculators.araig_calculators.folder_bagger_node.start_offset"},
+			RosParameter "stop_offset" { RefParameter "araig_calculators.araig_calculators.folder_bagger_node.stop_offset"},
+			RosParameter "whitelist" { RefParameter "araig_calculators.araig_calculators.folder_bagger_node.whitelist"},
+			RosParameter "blacklist" { RefParameter "araig_calculators.araig_calculators.folder_bagger_node.blacklist"}
+		}
+}

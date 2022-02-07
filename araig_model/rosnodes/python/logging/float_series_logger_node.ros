@@ -1,0 +1,15 @@
+PackageSet {
+	CatkinPackage araig_calculators {
+		Artifact  araig_calculators {
+			Node { name float_series_logger_node 
+		        Subscribers {
+		          Subscriber { name '/start' message 'araig_msgs.BoolStamped'},
+		          Subscriber { name '/stop' message 'araig_msgs.BoolStamped'},
+		          Subscriber { name '/in_float' message 'std_msgs.Float64'}}
+		        Parameters {
+		          Parameter { name 'start_offset' type Double },
+  		          Parameter { name 'stop_offset' type Double },
+		          Parameter { name 'logged_data_title' type String },
+		          Parameter { name 'column_headers' type Array {type Array {type String}} }
+		          }
+}}}}	

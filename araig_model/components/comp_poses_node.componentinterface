@@ -1,0 +1,15 @@
+ComponentInterface { name comp_poses_node
+	FromRosNode "araig_calculators.araig_calculators.comp_poses_node"
+	RosPublishers{
+		RosPublisher "/out_bool" { RefPublisher "araig_calculators.araig_calculators.comp_poses_node./out_bool"}
+	}
+	RosSubscribers{
+		RosSubscriber "/in_pose_1" { RefSubscriber "araig_calculators.araig_calculators.comp_poses_node./in_pose_1"},
+		RosSubscriber "/in_pose_2" { RefSubscriber "araig_calculators.araig_calculators.comp_poses_node./in_pose_2"}
+	}
+	
+		RosParameters{
+			RosParameter "pose_tolerance" { RefParameter "araig_calculators.araig_calculators.comp_poses_node.pose_tolerance"},
+			RosParameter "orientation_tolerance" { RefParameter "araig_calculators.araig_calculators.comp_poses_node.orientation_tolerance"}
+		}
+}

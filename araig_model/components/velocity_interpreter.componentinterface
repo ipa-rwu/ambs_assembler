@@ -1,0 +1,15 @@
+ComponentInterface { name velocity_interpreter
+	FromRosNode "araig_interpreters.velocity_interpreter.velocity_interpreter"
+	RosPublishers{
+		RosPublisher "velocity" { RefPublisher "araig_interpreters.velocity_interpreter.velocity_interpreter.velocity"}
+	}
+	RosSubscribers{
+		RosSubscriber "start" { RefSubscriber "araig_interpreters.velocity_interpreter.velocity_interpreter.start"},
+		RosSubscriber "stop" { RefSubscriber "araig_interpreters.velocity_interpreter.velocity_interpreter.stop"}
+	}
+	
+		RosParameters{
+			RosParameter "max_vel" { RefParameter "araig_interpreters.velocity_interpreter.velocity_interpreter.max_vel"},
+			RosParameter "rate" { RefParameter "araig_interpreters.velocity_interpreter.velocity_interpreter.rate"}
+		}
+}

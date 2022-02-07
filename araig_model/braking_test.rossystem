@@ -1,0 +1,147 @@
+RosSystem { Name 'braking_test'
+RosComponents (
+	ComponentInterface { name robot_has_stopped FromRosNode "araig_calculators.comp_param_node.comp_param_node"
+		RosPublishers {
+		 	RosPublisher "/out_bool" { RefPublisher "araig_calculators.comp_param_node.comp_param_node./out_bool" }}
+	 	RosSubscribers {
+		 	RosSubscriber "/in_float" { RefSubscriber "araig_calculators.comp_param_node.comp_param_node./in_float" } }
+	 	RosParameters {
+	 		RosParameter param { RefParameter "araig_calculators.comp_param_node.comp_param_node.param" } ,
+	 		RosParameter tolerance { RefParameter "araig_calculators.comp_param_node.comp_param_node.tolerance" } } } ,
+	ComponentInterface { name robot_has_max_speed FromRosNode "araig_calculators.comp_param_node.comp_param_node"
+ 		RosPublishers {
+ 			RosPublisher "/out_bool" { RefPublisher "araig_calculators.comp_param_node.comp_param_node./out_bool" } }
+ 		RosSubscribers {
+ 			RosSubscriber "/in_float" { RefSubscriber "araig_calculators.comp_param_node.comp_param_node./in_float" } }
+		RosParameters {
+			RosParameter param { RefParameter "araig_calculators.comp_param_node.comp_param_node.param" } ,
+			RosParameter tolerance { RefParameter "araig_calculators.comp_param_node.comp_param_node.tolerance" } } } ,
+	ComponentInterface { name braking_time FromRosNode "araig_calculators.araig_calculators.diff_time_node"
+		RosPublishers {
+			RosPublisher "/out_duration" { RefPublisher "araig_calculators.araig_calculators.diff_time_node./out_duration" } }
+		RosSubscribers {
+			RosSubscriber "/in_start" { RefSubscriber "araig_calculators.araig_calculators.diff_time_node./in_start" } ,
+			RosSubscriber "/in_stop" { RefSubscriber "araig_calculators.araig_calculators.diff_time_node./in_stop" } }
+		RosParameters {
+			RosParameter if_log { RefParameter "araig_calculators.araig_calculators.diff_time_node.if_log" } } } ,
+	ComponentInterface { name braking_distance FromRosNode "araig_calculators.araig_calculators.diff_pose_temporal_node"
+		RosPublishers {
+			RosPublisher "/out_disp_position" { RefPublisher "araig_calculators.araig_calculators.diff_pose_temporal_node./out_disp_position" } ,
+			RosPublisher "/out_disp_angular" { RefPublisher "araig_calculators.araig_calculators.diff_pose_temporal_node./out_disp_angular" } }
+		RosSubscribers { RosSubscriber "/in_start" { RefSubscriber "araig_calculators.araig_calculators.diff_pose_temporal_node./in_start" } ,
+	 		RosSubscriber "/in_stop" { RefSubscriber "araig_calculators.araig_calculators.diff_pose_temporal_node./in_stop" } ,
+	 		RosSubscriber "/in_pose" { RefSubscriber "araig_calculators.araig_calculators.diff_pose_temporal_node./in_pose" } }
+ 		RosParameters {
+ 			RosParameter if_log { RefParameter "araig_calculators.araig_calculators.diff_pose_temporal_node.if_log" } } } ,
+	ComponentInterface { name results_logger FromRosNode "araig_calculators.araig_calculators.results_logger_node"
+		RosSubscribers {
+			RosSubscriber "/start" { RefSubscriber "araig_calculators.araig_calculators.results_logger_node./start" } ,
+			RosSubscriber "/stop" { RefSubscriber "araig_calculators.araig_calculators.results_logger_node./stop" } ,
+			RosSubscriber "/test_failed" { RefSubscriber "araig_calculators.araig_calculators.results_logger_node./test_failed" } ,
+			RosSubscriber "/test_succeeded" { RefSubscriber "araig_calculators.araig_calculators.results_logger_node./test_succeeded" } }
+		RosParameters {
+			RosParameter start_offset { RefParameter "araig_calculators.araig_calculators.results_logger_node.start_offset" } ,
+			RosParameter stop_offset { RefParameter "araig_calculators.araig_calculators.results_logger_node.stop_offset" } ,
+			RosParameter logginng_topics { RefParameter "araig_calculators.araig_calculators.results_logger_node.logginng_topics" } } } ,
+	ComponentInterface { name robot_speed_logger FromRosNode "araig_calculators.araig_calculators.float_series_logger_node"
+		RosSubscribers {
+			RosSubscriber "/start" { RefSubscriber "araig_calculators.araig_calculators.float_series_logger_node./start" } ,
+			RosSubscriber "/stop" { RefSubscriber "araig_calculators.araig_calculators.float_series_logger_node./stop" } ,
+			RosSubscriber "/in_float" { RefSubscriber "araig_calculators.araig_calculators.float_series_logger_node./in_float" } }
+		RosParameters {
+			RosParameter start_offset { RefParameter "araig_calculators.araig_calculators.float_series_logger_node.start_offset" } ,
+			RosParameter stop_offset { RefParameter "araig_calculators.araig_calculators.float_series_logger_node.stop_offset" } ,
+			RosParameter logged_data_title { RefParameter "araig_calculators.araig_calculators.float_series_logger_node.logged_data_title" } ,
+			RosParameter column_headers { RefParameter "araig_calculators.araig_calculators.float_series_logger_node.column_headers" } } } ,
+	ComponentInterface { name param_logger FromRosNode "araig_calculators.araig_calculators.rosparam_logger_node"
+		RosSubscribers {
+			RosSubscriber "/start" { RefSubscriber "araig_calculators.araig_calculators.rosparam_logger_node./start" } ,
+			RosSubscriber "/stop" { RefSubscriber "araig_calculators.araig_calculators.rosparam_logger_node./stop" } }
+			RosParameters {
+				RosParameter logginng_topics { RefParameter "araig_calculators.araig_calculators.rosparam_logger_node.logginng_topics" } ,
+				RosParameter start_offset { RefParameter "araig_calculators.araig_calculators.rosparam_logger_node.start_offset" } ,
+				RosParameter stop_offset { RefParameter "araig_calculators.araig_calculators.rosparam_logger_node.stop_offset" } } } ,
+	ComponentInterface { name folder_bagger FromRosNode "araig_calculators.araig_calculators.folder_bagger_node"
+		RosPublishers {
+			RosPublisher "/out_begin_write" { RefPublisher "araig_calculators.araig_calculators.folder_bagger_node./out_begin_write" } }
+		RosSubscribers {
+			RosSubscriber "/start" { RefSubscriber "araig_calculators.araig_calculators.folder_bagger_node./start" } ,
+			RosSubscriber "/stop" { RefSubscriber "araig_calculators.araig_calculators.folder_bagger_node./stop" } ,
+			RosSubscriber "/test_failed" { RefSubscriber "araig_calculators.araig_calculators.folder_bagger_node./test_failed" } ,
+			RosSubscriber "/test_succeeded" { RefSubscriber "araig_calculators.araig_calculators.folder_bagger_node./test_succeeded" } }
+		RosParameters {
+			RosParameter start_offset { RefParameter "araig_calculators.araig_calculators.folder_bagger_node.start_offset" } ,
+			RosParameter stop_offset { RefParameter "araig_calculators.araig_calculators.folder_bagger_node.stop_offset" } ,
+			RosParameter whitelist { RefParameter "araig_calculators.araig_calculators.folder_bagger_node.whitelist" } ,
+			RosParameter blacklist { RefParameter "araig_calculators.araig_calculators.folder_bagger_node.blacklist" } } } ,
+	ComponentInterface { name runner FromRosNode "araig_test_runners.test_1_braking.test_1_braking"
+		RosPublishers {
+			RosPublisher "/signal/runner/start_robot" { RefPublisher "araig_test_runners.test_1_braking.test_1_braking./signal/runner/start_robot" } ,
+			RosPublisher "/signal/runner/stop_robot" { RefPublisher "araig_test_runners.test_1_braking.test_1_braking./signal/runner/stop_robot" } ,
+			RosPublisher "/signal/runner/test_completed" { RefPublisher "araig_test_runners.test_1_braking.test_1_braking./signal/runner/test_completed" } ,
+			RosPublisher "/signal/runner/test_failed" { RefPublisher "araig_test_runners.test_1_braking.test_1_braking./signal/runner/test_failed" } ,
+			RosPublisher "/signal/runner/test_succeeded" { RefPublisher "araig_test_runners.test_1_braking.test_1_braking./signal/runner/test_succeeded" } }
+		RosSubscribers {
+			RosSubscriber "/signal/calc/robot_has_stopped" { RefSubscriber "araig_test_runners.test_1_braking.test_1_braking./signal/calc/robot_has_stopped" } ,
+			RosSubscriber "/signal/logger/begin_write" { RefSubscriber "araig_test_runners.test_1_braking.test_1_braking./signal/logger/begin_write" } ,
+			RosSubscriber "/signal/ui/start_test" { RefSubscriber "araig_test_runners.test_1_braking.test_1_braking./signal/ui/start_test" } ,
+			RosSubscriber "/signal/ui/reset_test" { RefSubscriber "araig_test_runners.test_1_braking.test_1_braking./signal/ui/reset_test" } ,
+			RosSubscriber "/signal/ui/interrupt_test" { RefSubscriber "araig_test_runners.test_1_braking.test_1_braking./signal/ui/interrupt_test" } ,
+			RosSubscriber "/signal/calc/robot_has_max_vel" { RefSubscriber "araig_test_runners.test_1_braking.test_1_braking./signal/calc/robot_has_max_vel" } }
+		RosParameters {
+			RosParameter goal_reach_timeout { RefParameter "araig_test_runners.test_1_braking.test_1_braking.goal_reach_timeout" } ,
+			RosParameter verification_timeout { RefParameter "araig_test_runners.test_1_braking.test_1_braking.verification_timeout" } } } ,
+	ComponentInterface { name ui FromRosNode "araig_test_runners.test_1_ui.test_1_ui"
+		RosPublishers {
+			RosPublisher "/signal/ui/start_test" { RefPublisher "araig_test_runners.test_1_ui.test_1_ui./signal/ui/start_test" } ,
+			RosPublisher "/signal/ui/reset_test" { RefPublisher "araig_test_runners.test_1_ui.test_1_ui./signal/ui/reset_test" } ,
+			RosPublisher "/signal/ui/interrupt_test" { RefPublisher "araig_test_runners.test_1_ui.test_1_ui./signal/ui/interrupt_test" } }
+		RosSubscribers {
+			RosSubscriber "/signal/runner/test_completed" { RefSubscriber "araig_test_runners.test_1_ui.test_1_ui./signal/runner/test_completed" } ,
+			RosSubscriber "/signal/runner/test_failed" { RefSubscriber "araig_test_runners.test_1_ui.test_1_ui./signal/runner/test_failed" } ,
+			RosSubscriber "/signal/runner/test_succeeded" { RefSubscriber "araig_test_runners.test_1_ui.test_1_ui./signal/runner/test_succeeded" } }
+		RosParameters {
+			RosParameter goal_reach_timeout { RefParameter "araig_test_runners.test_1_ui.test_1_ui.goal_reach_timeout" } ,
+			RosParameter verification_timeout { RefParameter "araig_test_runners.test_1_ui.test_1_ui.verification_timeout" } } } ,
+	ComponentInterface { name velocity_interpreter FromRosNode "araig_interpreters.velocity_interpreter.velocity_interpreter"
+		RosPublishers {
+			RosPublisher velocity { RefPublisher "araig_interpreters.velocity_interpreter.velocity_interpreter.velocity" } }
+		RosSubscribers {
+			RosSubscriber start { RefSubscriber "araig_interpreters.velocity_interpreter.velocity_interpreter.start" } ,
+			RosSubscriber stop { RefSubscriber "araig_interpreters.velocity_interpreter.velocity_interpreter.stop" } }
+		RosParameters {
+			RosParameter max_vel { RefParameter "araig_interpreters.velocity_interpreter.velocity_interpreter.max_vel" } ,
+			RosParameter rate { RefParameter "araig_interpreters.velocity_interpreter.velocity_interpreter.rate" } } } , 
+	ComponentInterface { name test_target FromRosNode "araig_test_targets.braking_test_target.braking_test_target" 
+			RosSubscribers { RosSubscriber cmd_vel { RefSubscriber "araig_test_targets.braking_test_target.braking_test_target.cmd_vel" } }
+	} ) 
+	TopicConnections {
+	TopicConnection "/signal/calc/robot_has_stopped" { From ( "robot_has_stopped./out_bool" ) To ( "braking_time./in_stop" ) } ,
+	TopicConnection "/signal/runner/stop_robot" { From ( "runner./signal/runner/stop_robot" ) To ( "braking_time./in_start" ) } , 
+	TopicConnection "/signal/calc/robot_has_max_vel" { From ( "robot_has_max_speed./out_bool" ) To ( "runner./signal/calc/robot_has_max_vel" ) } ,
+	TopicConnection "/signal/calc/robot_has_stopped" { From ( "robot_has_stopped./out_bool" ) To ( "runner./signal/calc/robot_has_stopped" ) } ,
+	TopicConnection "/signal/ui/interrupt_test" { From ( "ui./signal/ui/interrupt_test" ) To ( "runner./signal/ui/interrupt_test" ) } ,
+	TopicConnection "/signal/ui/start_test" { From ( "ui./signal/ui/start_test" ) To ( "runner./signal/ui/start_test" ) } ,
+	TopicConnection "/signal/ui/reset_test" { From ( "ui./signal/ui/reset_test" ) To ( "runner./signal/ui/reset_test" ) } ,
+	TopicConnection "/signal/runner/test_succeeded" { From ( "runner./signal/runner/test_succeeded" ) To ( "ui./signal/runner/test_succeeded" ) } ,
+	TopicConnection "/signal/runner/test_completed" { From ( "runner./signal/runner/test_completed" ) To ( "ui./signal/runner/test_completed" ) } ,
+	TopicConnection "/signal/runner/test_failed" { From ( "runner./signal/runner/test_failed" ) To ( "ui./signal/runner/test_failed" ) } ,
+	TopicConnection "/signal/ui/start_test" { From ( "ui./signal/ui/start_test" ) To ( "param_logger./start" ) } ,
+	TopicConnection "/signal/runner/test_completed" { From ( "runner./signal/runner/test_completed" ) To ( "param_logger./stop" ) } ,
+	TopicConnection "/signal/ui/start_test" { From ( "ui./signal/ui/start_test" ) To ( "folder_bagger./start" ) } ,
+	TopicConnection "/signal/runner/test_failed" { From ( "runner./signal/runner/test_failed" ) To ( "folder_bagger./test_failed" ) } ,
+	TopicConnection "/signal/runner/test_completed" { From ( "runner./signal/runner/test_completed" ) To ( "folder_bagger./stop" ) } ,
+	TopicConnection "/signal/runner/test_succeeded" { From ( "runner./signal/runner/test_succeeded" ) To ( "folder_bagger./test_succeeded" ) } ,
+	TopicConnection "/signal/logger/begin_write" { From ( "folder_bagger./out_begin_write" ) To ( "runner./signal/logger/begin_write" ) } ,
+	TopicConnection "/signal/ui/start_test" { From ( "ui./signal/ui/start_test" ) To ( "robot_speed_logger./start" ) } ,
+	TopicConnection "/signal/runner/test_completed" { From ( "runner./signal/runner/test_completed" ) To ( "robot_speed_logger./stop" ) } ,
+	TopicConnection "/signal/runner/test_failed" { From ( "runner./signal/runner/test_failed" ) To ( "results_logger./test_failed" ) } ,
+	TopicConnection "/signal/runner/test_succeeded" { From ( "runner./signal/runner/test_succeeded" ) To ( "results_logger./test_succeeded" ) } ,
+	TopicConnection "/signal/ui/start_test" { From ( "ui./signal/ui/start_test" ) To ( "results_logger./start" ) } ,
+	TopicConnection "/signal/runner/test_completed" { From ( "runner./signal/runner/test_completed" ) To ( "results_logger./stop" ) } ,
+	TopicConnection "/signal/runner/stop_robot" { From ( "runner./signal/runner/stop_robot" ) To ( "braking_distance./in_start" ) } ,
+	TopicConnection "/signal/calc/robot_has_stopped" { From ( "robot_has_stopped./out_bool" ) To ( "braking_distance./in_stop" ) } ,
+	TopicConnection "/signal/runner/stop_robot" { From ( "runner./signal/runner/stop_robot" ) To ( "velocity_interpreter.stop" ) } ,
+	TopicConnection "/signal/runner/start_robot" { From ( "runner./signal/runner/start_robot" ) To ( "velocity_interpreter.start" ) }, 
+	TopicConnection TODO { From ( "velocity_interpreter.velocity" ) To ( "test_target.cmd_vel" ) } } }
+	

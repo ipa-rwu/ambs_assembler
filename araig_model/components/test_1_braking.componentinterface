@@ -1,0 +1,23 @@
+ComponentInterface { name test_1_braking
+	FromRosNode "araig_test_runners.test_1_braking.test_1_braking"
+	RosPublishers{
+		RosPublisher "/signal/runner/start_robot" { RefPublisher "araig_test_runners.test_1_braking.test_1_braking./signal/runner/start_robot"},
+		RosPublisher "/signal/runner/stop_robot" { RefPublisher "araig_test_runners.test_1_braking.test_1_braking./signal/runner/stop_robot"},
+		RosPublisher "/signal/runner/test_completed" { RefPublisher "araig_test_runners.test_1_braking.test_1_braking./signal/runner/test_completed"},
+		RosPublisher "/signal/runner/test_failed" { RefPublisher "araig_test_runners.test_1_braking.test_1_braking./signal/runner/test_failed"},
+		RosPublisher "/signal/runner/test_succeeded" { RefPublisher "araig_test_runners.test_1_braking.test_1_braking./signal/runner/test_succeeded"}
+	}
+	RosSubscribers{
+		RosSubscriber "/signal/calc/robot_has_stopped" { RefSubscriber "araig_test_runners.test_1_braking.test_1_braking./signal/calc/robot_has_stopped"},
+		RosSubscriber "/signal/logger/begin_write" { RefSubscriber "araig_test_runners.test_1_braking.test_1_braking./signal/logger/begin_write"},
+		RosSubscriber "/signal/ui/start_test" { RefSubscriber "araig_test_runners.test_1_braking.test_1_braking./signal/ui/start_test"},
+		RosSubscriber "/signal/ui/reset_test" { RefSubscriber "araig_test_runners.test_1_braking.test_1_braking./signal/ui/reset_test"},
+		RosSubscriber "/signal/ui/interrupt_test" { RefSubscriber "araig_test_runners.test_1_braking.test_1_braking./signal/ui/interrupt_test"},
+		RosSubscriber "/signal/calc/robot_has_max_vel" { RefSubscriber "araig_test_runners.test_1_braking.test_1_braking./signal/calc/robot_has_max_vel"}
+	}
+	
+		RosParameters{
+			RosParameter "goal_reach_timeout" { RefParameter "araig_test_runners.test_1_braking.test_1_braking.goal_reach_timeout"},
+			RosParameter "verification_timeout" { RefParameter "araig_test_runners.test_1_braking.test_1_braking.verification_timeout"}
+		}
+}

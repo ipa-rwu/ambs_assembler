@@ -1,0 +1,7 @@
+PackageSet {
+	CatkinPackage araig_test_targets {
+		Artifact  braking_test_target {
+			Node { name braking_test_target 
+		        Subscribers {
+		          Subscriber { name 'cmd_vel' message 'geometry_msgs.Twist'}}
+}}}}

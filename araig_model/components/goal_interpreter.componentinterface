@@ -1,0 +1,23 @@
+ComponentInterface { name goal_interpreter
+	FromRosNode "araig_interpreters.araig_interpreters.goal_interpreter"
+	RosPublishers{
+		RosPublisher "goal" { RefPublisher "araig_interpreters.araig_interpreters.goal_interpreter.goal"},
+		RosPublisher "done" { RefPublisher "araig_interpreters.araig_interpreters.goal_interpreter.done"}
+	}
+	RosSubscribers{
+		RosSubscriber "start" { RefSubscriber "araig_interpreters.araig_interpreters.goal_interpreter.start"},
+		RosSubscriber "result" { RefSubscriber "araig_interpreters.araig_interpreters.goal_interpreter.result"}
+	}
+	RosActionClients{
+		RosActionClient "move_base_client" { RefClient "araig_interpreters.araig_interpreters.goal_interpreter.move_base_client"}
+	}
+	
+		RosParameters{
+			RosParameter "goal" { RefParameter "araig_interpreters.araig_interpreters.goal_interpreter.goal"},
+			RosParameter "orientation_tolerance" { RefParameter "araig_interpreters.araig_interpreters.goal_interpreter.orientation_tolerance"},
+			RosParameter "goal_action" { RefParameter "araig_interpreters.araig_interpreters.goal_interpreter.goal_action"},
+			RosParameter "wait_action" { RefParameter "araig_interpreters.araig_interpreters.goal_interpreter.wait_action"},
+			RosParameter "rate" { RefParameter "araig_interpreters.araig_interpreters.goal_interpreter.rate"},
+			RosParameter "goal" { RefParameter "araig_interpreters.araig_interpreters.goal_interpreter.goal"}
+		}
+}

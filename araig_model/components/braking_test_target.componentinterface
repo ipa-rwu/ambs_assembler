@@ -1,0 +1,7 @@
+ComponentInterface { name braking_test_target
+	FromRosNode "araig_test_targets.braking_test_target.braking_test_target"
+	RosSubscribers{
+		RosSubscriber "cmd_vel" { RefSubscriber "araig_test_targets.braking_test_target.braking_test_target.cmd_vel"}
+	}
+	
+}

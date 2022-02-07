@@ -1,0 +1,12 @@
+PackageSet {
+	CatkinPackage araig_calculators {
+		Artifact  araig_calculators {
+			Node { name diff_time_node 
+		        Publishers {
+		          Publisher { name '/out_duration' message 'araig_msgs.Float64Stamped'}}
+		        Subscribers {
+		          Subscriber { name '/in_start' message 'araig_msgs.BoolStamped'},
+		          Subscriber { name '/in_stop' message 'araig_msgs.BoolStamped'}}
+		        Parameters {
+		          Parameter { name 'if_log' type Boolean }}
+}}}}

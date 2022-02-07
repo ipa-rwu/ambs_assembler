@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node pkg="araig_calculators" type="comp_param_node" name="robot_has_stopped" cwd="node" respawn="false" output="screen">
+    <remap from='/out_bool' to='/signal/calc/robot_has_stopped' />
+  </node>
+  <node pkg="araig_calculators" type="comp_param_node" name="robot_has_max_speed" cwd="node" respawn="false" output="screen">
+    <remap from='/out_bool' to='/signal/calc/robot_has_max_vel' />
+  </node>
+  <node pkg="araig_calculators" type="araig_calculators" name="braking_time" cwd="node" respawn="false" output="screen">
+    <remap from='/in_start' to='/signal/runner/stop_robot' />
+    <remap from='/in_stop' to='/signal/calc/robot_has_stopped' />
+  </node>
+  <node pkg="araig_calculators" type="araig_calculators" name="braking_distance" cwd="node" respawn="false" output="screen">
+    <remap from='/in_start' to='/signal/runner/stop_robot' />
+    <remap from='/in_stop' to='/signal/calc/robot_has_stopped' />
+  </node>
+  <node pkg="araig_calculators" type="araig_calculators" name="results_logger" cwd="node" respawn="false" output="screen">
+    <remap from='/start' to='/signal/ui/start_test' />
+    <remap from='/stop' to='/signal/runner/test_completed' />
+    <remap from='/test_failed' to='/signal/runner/test_failed' />
+    <remap from='/test_succeeded' to='/signal/runner/test_succeeded' />
+  </node>
+  <node pkg="araig_calculators" type="araig_calculators" name="robot_speed_logger" cwd="node" respawn="false" output="screen">
+    <remap from='/start' to='/signal/ui/start_test' />
+    <remap from='/stop' to='/signal/runner/test_completed' />
+  </node>
+  <node pkg="araig_calculators" type="araig_calculators" name="param_logger" cwd="node" respawn="false" output="screen">
+    <remap from='/start' to='/signal/ui/start_test' />
+    <remap from='/stop' to='/signal/runner/test_completed' />
+  </node>
+  <node pkg="araig_calculators" type="araig_calculators" name="folder_bagger" cwd="node" respawn="false" output="screen">
+    <remap from='/out_begin_write' to='/signal/logger/begin_write' />
+    <remap from='/start' to='/signal/ui/start_test' />
+    <remap from='/stop' to='/signal/runner/test_completed' />
+    <remap from='/test_failed' to='/signal/runner/test_failed' />
+    <remap from='/test_succeeded' to='/signal/runner/test_succeeded' />
+  </node>
+  <node pkg="araig_test_runners" type="test_1_braking" name="runner" cwd="node" respawn="false" output="screen">
+  </node>
+  <node pkg="araig_test_runners" type="test_1_ui" name="ui" cwd="node" respawn="false" output="screen">
+  </node>
+  <node pkg="araig_interpreters" type="velocity_interpreter" name="velocity_interpreter" cwd="node" respawn="false" output="screen">
+    <remap from='velocity' to='TODO' />
+    <remap from='start' to='/signal/runner/start_robot' />
+    <remap from='stop' to='/signal/runner/stop_robot' />
+  </node>
+  <node pkg="araig_test_targets" type="braking_test_target" name="test_target" cwd="node" respawn="false" output="screen">
+    <remap from='cmd_vel' to='TODO' />
+  </node>
+
+</launch>
